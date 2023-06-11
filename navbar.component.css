@@ -1,0 +1,13 @@
+.navbar {
+    background-color: #f1f1f1;
+    padding: 10px;
+    font-size: 18px;
+    /* Alte stiluri specifice */
+  }
+  
+  .navbar a {
+    color: #333;
+    text-decoration: none;
+    /* Alte stiluri specifice pentru link-uri */
+  }
+  

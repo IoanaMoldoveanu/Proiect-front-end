@@ -1,0 +1,212 @@
+<style>
+  .home {
+    background-color: #f9f9f9;
+    padding: 20px;
+    text-align: center;
+  }
+
+  .home h1 {
+    font-size: 24px;
+    color: #333;
+  }
+
+  .home p {
+    font-size: 18px;
+    color: #666;
+  }
+
+  .home a {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #333;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 4px;
+    margin-top: 10px;
+  }
+
+  /* Stiluri pentru pagina About */
+  .about {
+    background-color: #f9f9f9;
+    padding: 20px;
+  }
+
+  .about h2 {
+    font-size: 24px;
+    color: #333;
+  }
+
+  .about p {
+    font-size: 18px;
+    color: #666;
+  }
+
+  /* Stiluri pentru pagina Products */
+  .products {
+    background-color: #f9f9f9;
+    padding: 20px;
+  }
+
+  .products h2 {
+    font-size: 24px;
+    color: #333;
+  }
+
+  .products p {
+    font-size: 18px;
+    color: #666;
+  }
+
+  .products ul {
+    list-style-type: disc;
+    margin-left: 20px;
+  }
+
+  .products li {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 5px;
+  }
+
+  /* Stiluri pentru pagina Contact */
+  .contact {
+    background-color: #f9f9f9;
+    padding: 20px;
+  }
+
+  .contact h2 {
+    font-size: 24px;
+    color: #333;
+  }
+
+  .contact p {
+    font-size: 18px;
+    color: #666;
+  }
+
+  .contact ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .contact li {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 5px;
+  }
+  /* Stilizare generală */
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+
+  /* Stilizare navbar */
+  nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #f1f1f1;
+    padding: 10px;
+    font-size: 18px;
+  }
+
+  nav .logo {
+    font-weight: bold;
+  }
+
+  nav ul {
+    list-style-type: none;
+    display: flex;
+  }
+
+  nav ul li {
+    margin-right: 10px;
+  }
+
+  nav ul li a {
+    text-decoration: none;
+    color: #333;
+  }
+
+  /* Stilizare footer */
+  footer {
+    margin-top: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #f1f1f1;
+    padding: 10px;
+    font-size: 14px;
+    color: #666;
+  }
+
+  /* Stilizare link-uri în footer */
+  footer a {
+    margin-right: 10px;
+    text-decoration: none;
+    color: #666;
+  }
+</style>
+
+<nav>
+  <div class="logo">Logo</div>
+  <ul>
+    <li><a routerLink="/" (click)="setCurrentPage('home')">Home</a></li>
+    <li><a routerLink="/about" (click)="setCurrentPage('about')">About</a></li>
+    <li><a routerLink="/products" (click)="setCurrentPage('products')">Products</a></li>
+    <li><a routerLink="/contact" (click)="setCurrentPage('contact')">Contact</a></li>
+    <li><a routerLink="/login">Login</a></li>
+    <li><a routerLink="/register">Register</a></li>
+  </ul>
+</nav>
+
+<router-outlet></router-outlet>
+
+<footer *ngIf="!isLoginPage() && !isRegisterPage()">
+  <div class="contact-info">Contact us: email@example.com</div>
+  <div class="links">
+    <a routerLink="/">Home</a>
+    <a routerLink="/about">About</a>
+    <a routerLink="/products">Products</a>
+    <a routerLink="/contact">Contact</a>
+  </div>
+</footer>
+
+<div class="home" *ngIf="currentPage === 'home'">
+  <h1>Welcome to our Skin Care Store</h1>
+  <p>Discover the best skin care products for a healthy and radiant skin.</p>
+  <a href="/products">Shop Now</a>
+</div>
+
+<div class="about" *ngIf="currentPage === 'about'">
+  <h2>About Us</h2>
+  <p>We are passionate about providing high-quality skin care products that are effective and safe for your skin.</p>
+</div>
+
+<div class="products" *ngIf="currentPage === 'products'">
+  <h2>Our Products</h2>
+  <p>Explore our wide range of skin care products tailored to your skin's needs.</p>
+  <ul>
+    <li>Moisturizers</li>
+    <li>Cleansers</li>
+    <li>Serums</li>
+    <li>Face Masks</li>
+    <li>Sunscreen</li>
+  </ul>
+</div>
+
+<div class="contact" *ngIf="currentPage === 'contact'">
+  <h2>Contact Us</h2>
+  <p>If you have any questions or inquiries, feel free to reach out to us.</p>
+  <ul>
+    <li>Email: info@example.com</li>
+    <li>Phone: 123-456-7890</li>
+    <li>Address: 123 Street, City, Country</li>
+  </ul>
+</div>
+
